@@ -1,0 +1,24 @@
+{
+  "name": "imooc-node-basic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.13.4",
+    "pm2": "^1.1.2",
+    "utility": "^1.7.0"
+  },
+  "devDependencies": {
+    "cheerio": "^0.20.0",
+    "eventproxy": "^0.3.4",
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "mongoose": "^4.4.14",
+    "superagent": "^1.8.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ella",
+  "license": "MIT"
+}
