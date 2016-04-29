@@ -13,6 +13,7 @@
     "eventproxy": "^0.3.4",
     "express": "^4.13.4",
     "jade": "^1.11.0",
+    "moment": "^2.13.0",
     "mongoose": "^4.4.14",
     "superagent": "^1.8.3"
   },
