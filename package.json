@@ -13,6 +13,7 @@
     "cheerio": "^0.20.0",
     "eventproxy": "^0.3.4",
     "express": "^4.13.4",
+    "grunt": "^1.0.1",
     "jade": "^1.11.0",
     "moment": "^2.13.0",
     "mongodb": "^2.1.18",

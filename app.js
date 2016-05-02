@@ -10,6 +10,10 @@ app.locals.moment = require('moment');
 
 mongoose.connect('mongodb://localhost/imooc');
 
+// 静态资源请求路径
+app.use(express.static(path.join(__dirname, 'static')));
+// console.info('__dirname',__dirname,path.join(__dirname, 'bower_components'));
+
 app.set('views','./views/pages');
 app.set('view engine','jade');
 app.use(bodyParser());
@@ -69,7 +73,20 @@ app.get('/admin/update/:id',function(req,res){
 		});
 	}
 });
+//admin delete movie
+app.delete('/admin/list',function(req,res){
+    var id = req.query.id;
+    if(id){
+        Movie.remove({_id:id},function(err,movie){
+            if(err){
+               console.log(err);
+            }else{
+                res.json({success:1});
+            }
+        });
+    }
 
+})
 // admin post movie
 app.post('/admin/movie/new',function(req,res){
 	var id = req.body.movie._id;
