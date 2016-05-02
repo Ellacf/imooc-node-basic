@@ -1,0 +1,21 @@
+imooc-node-basic@1.0.0 /Users/chufei/github/imooc-node-basic
+├── expres@0.0.5  extraneous
+├── express@4.13.4 
+├─┬ grunt-contrib-watch@1.0.0
+│ └─┬ gaze@1.0.0
+│   └─┬ globule@0.2.0
+│     └── minimatch@0.2.14 
+├── jade@1.11.0 
+└─┬ mocha@2.4.5 
+  ├── commander@2.3.0 
+  ├── diff@1.4.0 
+  ├── escape-string-regexp@1.0.2 
+  ├─┬ glob@3.2.3 
+  │ ├── graceful-fs@2.0.3 
+  │ └── minimatch@0.2.14 
+  ├── growl@1.8.1 
+  ├─┬ jade@0.26.3 
+  │ ├── commander@0.6.1 
+  │ └── mkdirp@0.3.0 
+  └── supports-color@1.2.0 
+

@@ -11,7 +11,7 @@ app.locals.moment = require('moment');
 mongoose.connect('mongodb://localhost/imooc');
 
 // 静态资源请求路径
-app.use(express.static(path.join(__dirname, 'static')));
+app.use(express.static(path.join(__dirname, 'public')));
 // console.info('__dirname',__dirname,path.join(__dirname, 'bower_components'));
 
 app.set('views','./views/pages');
