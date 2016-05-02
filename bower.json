@@ -1,0 +1,20 @@
+{
+  "name": "imooc-node-basic",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Ella"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Ellacf/imooc-node-basic",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
