@@ -9,13 +9,17 @@
     "utility": "^1.7.0"
   },
   "devDependencies": {
+    "body-parser": "^1.15.0",
     "cheerio": "^0.20.0",
     "eventproxy": "^0.3.4",
     "express": "^4.13.4",
     "jade": "^1.11.0",
     "moment": "^2.13.0",
+    "mongodb": "^2.1.18",
     "mongoose": "^4.4.14",
-    "superagent": "^1.8.3"
+    "path": "^0.12.7",
+    "superagent": "^1.8.3",
+    "underscore": "^1.8.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
