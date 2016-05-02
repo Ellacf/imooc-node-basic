@@ -11,22 +11,31 @@ imooc-node-basic
     + .git
     + bower_components
     + node_modules
+    + models
+        + movie.js
+    + schemas
+        + movie.js
     + views
-        + admin.jade
-        + detail.jade
-        + index.jade
-        + list.jade
+        + includes
+            + head.jade
+            + header.jade
+        + pages
+            + admin.jade
+            + detail.jade
+            + index.jade
+            + list.jade
+        + layout.jade
     + .gitignore
     + app.js
-    + package.JSON
+    + bower.json
+    + package.json
     + READE.md    
 
 
 #测试url
 + localhost:3000
-+ localhost:3000/movie/1
 + localhost:3000/admin/movie
-+ localhost:3000/admin/List
++ localhost:3000/admin/list
 
 #后续
 将参考[豆瓣电影音乐网站](https://github.com/Loogeek/douban_Website)完善一下
