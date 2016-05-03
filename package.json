@@ -10,9 +10,11 @@
   "devDependencies": {
     "bcrypt": "^0.8.6",
     "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.1",
     "cheerio": "^0.20.0",
     "eventproxy": "^0.3.4",
     "express": "^4.13.4",
+    "express-session": "^1.13.0",
     "grunt": "^1.0.1",
     "grunt-concurrent": "^2.3.0",
     "grunt-contrib-jshint": "^1.0.0",
