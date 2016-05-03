@@ -1,17 +1,19 @@
 var express = require('express');
 var path = require('path');
 var mongoose = require('mongoose');
-var Movie = require('./models/movie');
-var User = require('./models/user');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var mongoStore = require('connect-mongo')(session);
 var _ = require('underscore');
 var port = process.env.PORT || 3000;
 var app = express();
+var dbUrl = 'mongodb://localhost/imooc';
 app.locals.moment = require('moment');
+var Movie = require('./models/movie');
+var User = require('./models/user');
 
-mongoose.connect('mongodb://localhost/imooc');
+mongoose.connect(dbUrl);
 
 // 静态资源请求路径
 app.use(express.static(path.join(__dirname, 'public')));
@@ -22,7 +24,11 @@ app.set('view engine','jade');
 app.use(bodyParser());
 app.use(cookieParser());
 app.use(session({
-    secret: 'imooc'
+    secret: 'imooc',
+    store: new mongoStore({
+        url: dbUrl,
+        collection:'sessions'
+    })
 }));
 app.use(express.static(path.join(__dirname,'bower_components')));
 app.listen(port);
