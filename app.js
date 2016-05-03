@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var mongoose = require('mongoose');
 var Movie = require('./models/movie');
+var User = require('./models/user');
 var bodyParser = require('body-parser');
 var _ = require('underscore');
 var port = process.env.PORT || 3000;
@@ -22,6 +23,7 @@ app.listen(port);
 
 console.log('imooc started on port '+port);
 
+// index page
 app.get('/',function(req,res){
 	Movie.fetch(function(err,movies){
 		if(err){
@@ -33,7 +35,70 @@ app.get('/',function(req,res){
 		});
 	});
 });
+// signup
+app.post('/user/signup', function(req, res){
+    var _user = req.body.user;
+    User.findOne({name: _user.name}, function(err, user){
+        if(err){
+            console.log(err)
+        }
+        if(user){
+            return res.redirect('/')
+        }else{
+            var userNew = new User(_user);
+            userNew.save(function(err, userNew){
+                if(err){
+                    console.log(err);
+                }
+                res.redirect('/admin/userlist');
+            });
+        }
+    });
+});
+// signin
+app.post('/user/signin', function(req, res){
+    var _user = req.body.user
+    var name = _user.name
+    var password = _user.password
 
+    User.findOne({name:name}, function(err, user){
+        if(err){
+            console.log(err);
+        }
+        if(!user){
+            return res.redirect('/')
+        }
+
+        user.comparePassword(password, function(err, isMatch){
+            if(err){
+                console.log(err)
+            }
+
+            if(isMatch){
+                console.log('Password is matched')
+                return res.redirect('/')
+            }else{
+                console.log('Password is not matched')
+            }
+        })
+    });
+
+});
+
+// userList page
+app.get('/admin/userlist',function(req,res){
+	User.fetch(function(err,users){
+		if(err){
+			console.log(err);
+		}
+		res.render('userlist',{
+			title:'imooc 用户列表页',
+			users: users
+		});
+	});
+});
+
+// detail page
 app.get('/movie/:id',function(req,res){
 	var id = req.params.id;
 
