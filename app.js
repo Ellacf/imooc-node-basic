@@ -34,11 +34,19 @@ app.use(express.static(path.join(__dirname,'bower_components')));
 app.listen(port);
 
 console.log('imooc started on port '+port);
-
+// pre handle user
+app.use(function(req, res, next){
+    console.log("session ");
+    console.log(req.session.user);
+    var _user = req.session.user;
+    if(_user){
+        app.locals.user = _user
+    }
+    return next()
+});
 // index page
 app.get('/',function(req,res){
-    console.log("session ");
-    console.log(req.session.user)
+
 	Movie.fetch(function(err,movies){
 		if(err){
 			console.log(err);
@@ -59,8 +67,8 @@ app.post('/user/signup', function(req, res){
         if(user){
             return res.redirect('/')
         }else{
-            var userNew = new User(_user);
-            userNew.save(function(err, userNew){
+            var user = new User(_user);
+            user.save(function(err, user){
                 if(err){
                     console.log(err);
                 }
@@ -90,7 +98,6 @@ app.post('/user/signin', function(req, res){
 
             if(isMatch){
                 req.session.user = user
-                console.log('Password is matched')
                 return res.redirect('/')
             }else{
                 console.log('Password is not matched')
@@ -99,7 +106,12 @@ app.post('/user/signin', function(req, res){
     });
 
 });
-
+// logout
+app.get('/logout', function(req, res){
+    delete req.session.user
+    delete app.locals.user
+    res.redirect('/')
+})
 // userList page
 app.get('/admin/userlist',function(req,res){
 	User.fetch(function(err,users){
