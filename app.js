@@ -10,14 +10,14 @@ var port = process.env.PORT || 3000;
 var app = express();
 var dbUrl = 'mongodb://localhost/imooc';
 app.locals.moment = require('moment');
-
 mongoose.connect(dbUrl);
 
 // 静态资源请求路径
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname,'bower_components')));
 // console.info('__dirname',__dirname,path.join(__dirname, 'bower_components'));
 
-app.set('views','./views/pages');
+app.set('views','./app/views/pages');
 app.set('view engine','jade');
 app.use(bodyParser());
 app.use(cookieParser());
@@ -37,7 +37,5 @@ if('development' === app.get('env')){
 }
 
 require('./config/routes')(app)
-app.use(express.static(path.join(__dirname,'bower_components')));
 app.listen(port);
-
 console.log('imooc started on port '+port);
