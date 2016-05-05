@@ -20,13 +20,18 @@ app.use(express.static(path.join(__dirname,'bower_components')));
 app.set('views','./app/views/pages');
 app.set('view engine','jade');
 app.use(bodyParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser());
 app.use(session({
     secret: 'imooc',
     store: new mongoStore({
         url: dbUrl,
         collection:'sessions'
-    })
+    }),
+    proxy: true,
+    resave: true,
+    saveUninitialized: true
 }));
 
 if('development' === app.get('env')){
