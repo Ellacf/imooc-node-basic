@@ -16,6 +16,7 @@
     "eventproxy": "^0.3.4",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
+    "formidable": "^1.0.17",
     "grunt": "^1.0.1",
     "grunt-concurrent": "^2.3.0",
     "grunt-contrib-jshint": "^1.0.0",
@@ -30,6 +31,7 @@
     "mongodb": "^2.1.18",
     "mongoose": "^4.4.14",
     "morgan": "^1.7.0",
+    "multiparty": "^4.1.2",
     "path": "^0.12.7",
     "superagent": "^1.8.3",
     "underscore": "^1.8.3"

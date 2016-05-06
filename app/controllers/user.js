@@ -13,6 +13,7 @@ exports.showSignin = function(req, res) {
 }
 
 exports.signup = function(req, res) {
+    console.log(req.body)
 
   var _user = req.body.user
 

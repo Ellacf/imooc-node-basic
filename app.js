@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var formidable = require('formidable');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var mongoStore = require('connect-mongo')(session);
@@ -19,7 +20,7 @@ app.use(express.static(path.join(__dirname,'bower_components')));
 
 app.set('views','./app/views/pages');
 app.set('view engine','jade');
-app.use(bodyParser());
+// app.use(bodyParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser());
