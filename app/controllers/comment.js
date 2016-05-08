@@ -1,7 +1,5 @@
 var mongoose = require('mongoose')
-// var Comment = mongoose.model('Comment');
-var Comment = require('../models/comment');
-
+var Comment = require('../models/comment')
 
 // comment
 exports.save = function(req, res) {

@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var formidable = require('formidable');
+var multipart = require('connect-multiparty');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var mongoStore = require('connect-mongo')(session);
@@ -22,7 +22,8 @@ app.set('views','./app/views/pages');
 app.set('view engine','jade');
 // app.use(bodyParser());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(multipart());
 app.use(cookieParser());
 app.use(session({
     secret: 'imooc',
