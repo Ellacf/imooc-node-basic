@@ -9,6 +9,7 @@
 
 #单元测试
 `grunt test`
+`npm run test`
 
 #代码结构
 imooc-node-basic
