@@ -3,7 +3,7 @@ var Movie = require('../models/movie')
 var Category = require('../models/category')
 var Comment = require('../models/comment')
 var _ = require('underscore')
-var fs = require('fs')
+var fs = require('graceful-fs')
 var path = require('path')
 
 // detail page

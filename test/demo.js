@@ -1,5 +1,5 @@
-var express = require("express");
-var request = require("supertest");
+var express = require('express');
+var request = require('supertest');
 var bodyParser = require('body-parser');
 var app = express();
 var expect = require('chai').expect;

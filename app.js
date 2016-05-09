@@ -10,7 +10,7 @@ var logger = require('morgan');
 var port = process.env.PORT || 3000;
 var app = express();
 app.locals.moment = require('moment');
-var fs = require('fs')
+var fs = require('graceful-fs')
 var dbUrl = 'mongodb://localhost/imooc';
 mongoose.connect(dbUrl);
 // models loading
