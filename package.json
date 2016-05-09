@@ -10,6 +10,7 @@
   "devDependencies": {
     "bcrypt": "^0.8.6",
     "body-parser": "^1.15.0",
+    "chai": "^3.5.0",
     "cheerio": "^0.20.0",
     "connect-mongo": "^1.1.0",
     "connect-multiparty": "^2.0.0",
@@ -25,6 +26,7 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-mocha-test": "^0.12.7",
     "grunt-nodemon": "^0.4.2",
+    "istanbul": "^0.4.3",
     "jade": "^1.11.0",
     "mocha": "^2.4.5",
     "moment": "^2.13.0",
@@ -37,7 +39,7 @@
     "underscore": "^1.8.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --recursive --reporter spec"
   },
   "author": "Ella",
   "license": "MIT"

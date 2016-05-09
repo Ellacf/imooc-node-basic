@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for imooc-node-basic/config/routes.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">imooc-node-basic/config/</a> routes.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">89.29% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>25/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">89.29% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>25/28</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var Index = require('../app/controllers/index');
+var User = require('../app/controllers/user');
+var Movie = require('../app/controllers/movie');
+var Comment = require('../app/controllers/comment');
+var Category = require('../app/controllers/category')
+&nbsp;
+module.exports = function(app) {
+    // pre handle user
+    app.use(<span class="fstat-no" title="function not covered" >function(req, res, next) {</span>
+<span class="cstat-no" title="statement not covered" >        var _user = req.session.user;</span>
+<span class="cstat-no" title="statement not covered" >        app.locals.user = _user</span>
+<span class="cstat-no" title="statement not covered" >        next()</span>
+    });
+    // Index
+    app.get('/', Index.index);
+&nbsp;
+    // User
+    app.post('/user/signup', User.signup);
+    app.post('/user/signin', User.signin);
+    app.get('/signin', User.showSignin);
+    app.get('/signup', User.showSignup);
+    app.get('/logout', User.logout);
+    app.get('/admin/user/list', User.signinRequired, User.adminRequired, User.list);
+&nbsp;
+    // Movie
+    app.get('/movie/:id', Movie.detail);
+    app.get('/admin/movie/new',  User.signinRequired, User.adminRequired, Movie.new);
+    app.get('/admin/movie/update/:id', User.signinRequired, User.adminRequired, Movie.update);
+    app.post('/admin/movie', User.signinRequired, User.adminRequired, Movie.savePoster, Movie.save)
+    app.get('/admin/movie/list', User.signinRequired, User.adminRequired, Movie.list);
+    app.delete('/admin/movie/list', User.signinRequired, User.adminRequired, Movie.delete);
+&nbsp;
+    // Comment
+    app.post('/user/comment', User.signinRequired, Comment.save)
+&nbsp;
+    // Category
+    app.get('/admin/category/new', User.signinRequired, User.adminRequired, Category.new)
+    app.post('/admin/category', User.signinRequired, User.adminRequired, Category.save)
+    app.get('/admin/category/list', User.signinRequired, User.adminRequired, Category.list)
+    // results
+    app.get('/results', Index.search)
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon May 09 2016 15:12:42 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
