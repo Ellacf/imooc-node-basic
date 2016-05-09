@@ -32,6 +32,7 @@
     "mongoose": "^4.4.14",
     "morgan": "^1.7.0",
     "path": "^0.12.7",
+    "should": "^8.3.1",
     "superagent": "^1.8.3",
     "underscore": "^1.8.3"
   },

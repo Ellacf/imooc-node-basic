@@ -9,10 +9,30 @@ var mongoStore = require('connect-mongo')(session);
 var logger = require('morgan');
 var port = process.env.PORT || 3000;
 var app = express();
-var dbUrl = 'mongodb://localhost/imooc';
 app.locals.moment = require('moment');
+var fs = require('fs')
+var dbUrl = 'mongodb://localhost/imooc';
 mongoose.connect(dbUrl);
+// models loading
+var models_path = __dirname + '/app/models'
+var walk = function(path) {
+  fs
+    .readdirSync(path)
+    .forEach(function(file) {
+      var newPath = path + '/' + file
+      var stat = fs.statSync(newPath)
 
+      if (stat.isFile()) {
+        if (/(.*)\.(js|coffee)/.test(file)) {
+          require(newPath)
+        }
+      }
+      else if (stat.isDirectory()) {
+        walk(newPath)
+      }
+    })
+}
+walk(models_path)
 // 静态资源请求路径
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname,'bower_components')));
