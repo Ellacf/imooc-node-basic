@@ -12,5 +12,5 @@ nvm use v0.12.5
 npm version
 
 pm25 kill
-pm25 interact 056147cb0b76621b 0a9b46b7b35348d9
+pm25 interact 070b11334168a426 09547eef3a8a9676
 pm25 start processes.json
